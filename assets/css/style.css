@@ -1,0 +1,51 @@
+/* Style global pour la page */
+html, body{
+margin:0; /* Supprime les marges par défaut du navigateur */
+padding: 0; /* Supprime le padding par défaut */
+font-family: "Aldrich"; /* Police principale et police de secours */
+font-size: 12px; /* Taille de base du texte */
+height:100%; /* Hauteur complète de la fenêtre */
+color: #F0F1D5; /* Couleur du texte */
+background-color: transparent; /* Fond transparent pour laisser le body visible */
+}
+/* Conteneur principal centré */
+#wrapper{
+display:flex; /* Utilise Flexbox pour centrer le contenu */
+justify-content:center; /* Centre horizontalement */
+align-items:center; /* Centre verticalement */
+height: 100%; /* Remplit toute la hauteur de la fenêtre */
+}
+/* Contenu interne */
+.inside{
+font-weight: bold; /* Texte en gras */
+font-size: 75px; /* Taille très grande pour l’horloge */
+}
+/*Ajoute deux-points après chaque span de l’horloge */
+.timer span::after{
+content: " : "; /* Affiche " : " automatiquement après les heures et minutes */
+}
+/* Supprime les deux-points après le dernier span (secondes) */
+.timer span:last-child::after{
+content: ""; /* Pas de symbole après les secondes */
+}
+/* Conteneur des boutons */
+.controls{
+text-align: center; /* Centre le bouton horizontalement */
+}
+/* Style général du bouton pause/play */
+.controls button {
+box-sizing: border-box; /* Inclut le padding et la bordure dans les dimensions */
+height: 74px; /* Hauteur du bouton */
+background-color: transparent; /* Fond transparent */
+border-color: transparent transparent transparent #F0F1D5; /* Bordure droite colorée pour faire un triangle */
+transition: 100ms all ease; /* Animation douce pour les changements de style */
+will-change: border-width; /* Optimisation pour le changement de largeur de bordure */
+cursor: pointer; /* Curseur main au survol */
+border-style: solid; /* Bordures solides */
+border-width: 37px 0 37px 60px; /* Forme du triangle du bouton play */
+}
+/* Style spécifique lorsque le bouton est en pause */
+.controls button.pause{
+border-style: double; /* Bordure double pour l’effet pause */
+border-width: 0px 0 0px 60px; /* Largeur de la bordure à gauche conservée, haut et bas à 0 */
+}
